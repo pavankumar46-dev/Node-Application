@@ -1,0 +1,297 @@
+Node JS:
+-------
+Link Referred - https://www.tutorialspoint.com/nodejs/
+
+	Node JS is event-driven Programming (That's why node js is fast)
+	Node JS is using using callbacks and events, so it maintains concurrency (Parallel Processing)
+	JavaScript is being used by more than 94% of all the websites.
+	non-blocking I/O (Input/Output)
+	non – synchronous, data-driven applications.
+	Node.JS is more suitable for smaller applications.
+	Node.JS is good for I/O applications not that good for CPU Intensive application.
+	Node JS is a java script based platform which used to build web-based application. (server side[Back End])
+	Node Js is java script runtime environment.
+	Node JS applications are written in java script and can be run within node.js runtime.
+	Node.js = Runtime Environment + JavaScript Library
+	JavaScript is a single thread programing language.
+	Single Thread meaning it is capable of doing single task at a time. (Which actually simplify the code)
+	Each and every thread keeps an event loop, so whenever task gets completed. It fires the response.
+	
+	Event Loop (Listens to events) -----> Event Caught --------> Triggers the CallBack
+	
+	
+	Blocking:
+	---------
+		If we have three functions in a row, the code execution will be first(),second(), and third(). This concept is called Blocking. This may lead to some issues in real time development. Usually this is how Synchronous Javascript will work, and this sync-javascript uses (LIFO- Stack)
+	Non Blocking:
+	-------------
+		Let's see about Non-Blocking I/O, which means we are going to use asynchronous callbacks. This will make our code Non-Blocking.
+		To understand the Async concept we need to know about Callbacks and Event Loops.
+	Queues:
+	-------
+		Message Queue/task queue - Low Priority
+		job queue/Micro Task Queue (Promises) - High Priority
+	Key Things:
+	-----------
+		Callbacks
+		Event Loop
+		Message Queue
+		Job Queue
+	Application:
+	-----------
+		CPU Intensive Application - Which mostly utilizes the CPU to do any action, not preferable. to develop this sort of application with Node.js. (Simply Computational Applications)
+		I/O Application - Simple example is reading data from Hard Disk.
+		
+Example:
+-------
+const networkRequest = () => {
+setTimeout(() => {
+    console.log('Async Code');
+  }, 2000);
+};
+console.log('Hello World');
+networkRequest();
+console.log('The End');
+
+First -Hello World
+Second - networkRequest()
+Third - setTimeout
+Finally - Async Code
+
+Here we have Event loop which will look into call stack. If call Stack is empty it looks for message queue, in this case we will have one pending callback. So now it will push that callback and then we will get that log message.
+
+1) Event Loop (Will take care of the sending response of previous api call)
+2) DOM Events (Click events or Keyboard Events)
+3) Micro Queue/Job Queue
+
+Creating Node Application:
+--------------------------
+Basic and important components of the Node.Js application.
+
+1) Import Required modules.
+2) Create Server - This will be listening to the clients request.
+3) Read request and return response - The server created in previous step will be listening to the client (Reading request from client) and will return the response in browser or in console.
+
+Method - createServer is a method which will be having two arguments (1)Request and 2)Response)
+
+NPM (Node Packet Manager)
+---
+	Which provides two main functionality
+	1) On line repository for the node.js modules/packages
+	2) Provides command line utility to install node packages
+
+NPM installation in Local mode and Global mode:
+------------------------------------------------
+Local Installation - which will be available only to the directory where we ran (npm install <Module Name>)	
+Global Installation - Which will be installed in system directory, which cannot be imported using require command
+
+
+CALLBACK:
+---------
+	Callback is an asynchronous equivalent for a function. A callback function is called at the completion of a given task (returns it value). It makes this Node js as Non Blocking Code.
+	
+Callback vs Events:
+-------------------
+	Both are more or less same. The main difference between these too is callback function will be called once that function return some value. But this Events will work's based on observer pattern.
+	
+Observers:
+----------
+	The function that listens to the events will be called as Observers. (Basically events will trigger the listener function)
+	Node.js has multiple in-built events available through events module and EventEmitter class which are used to bind events and event-listeners
+
+Event Emitter:
+--------------
+	fs.readStream emits an event when the file is opened
+	
+	Emit means, triggering an event when ever that function call happen. In above example when ever file got opened, event emitter will fire an event.
+	
+	When the EventEmitter object emits an event, all of the functions attached to that specific event are called synchronously.
+	
+	By default, all listeners attached to a particular event object are called by the EventListener object synchronously in the order.
+	
+	If we want to break that flow and switch to asynchronous mode then we can use setImmediate() or process.nextTick() methods:
+	
+	Like below we can use event emitter class.
+	
+// Import events module
+var events = require('events');
+
+// Create an eventEmitter object
+var eventEmitter = new events.EventEmitter();
+
+// Bind event and event  handler as follows
+eventEmitter.on('eventName', eventHandler);
+
+// Fire an event 
+eventEmitter.emit('eventName');
+
+EventEmitter have two properties:
+
+On - which will be using to bind with function.
+emit - which will be using to fire an event.
+
+List of events:
+--------------
+error
+newListener
+removeListener
+addListerner
+on
+Note: on and addListerner both are same 
+
+Buffer:
+-------
+	Buffer class is global class, this can be accessed in an application without importing the buffer module.
+	Buffer is designed to handle raw binary data.
+	Buffer is used to sequence of integers, which is similar to array of integers.
+	
+Buffer Functions:
+-----------------
+	Used to store sequence of integers
+	convert to integers to string (buf.toString)
+	Convert string to json (buf.toJSON)
+	Contact string using buffer function (Buffer.contact)
+	Compare string (buffer1.compare(buffer2))
+	buf.length
+
+Streams:
+--------
+	Which usually used to read and write the data.
+	We have four types of streams events.
+	1) data
+	2) end
+	3) error
+	4) finish
+	
+	We have four types of streams.
+	1) Readable
+	2) writable
+	3) Transform
+	4) Duplex
+	
+	Piping:
+	-------
+		Output of one stream will be input of another stream.
+		readerStream.pipe(writerStream);
+	Chaining Streams:
+	-----------------
+		zlib
+		We can use this to compress and decompress the files.
+	
+	
+File System:
+------------
+	Every method in fs has sync and aysn forms.
+	Methods:
+	--------
+	1) stat - File Type
+	2) open - open the file
+	3) readFile - first argument will be error and second argument will be data
+	4) writeFile
+	5) close - close the file
+	6) unlink - will delete the file
+	7) mkdir - will create directory
+	8) readdir - list all the files in particular directory
+	9) rmdir - delete directory
+	
+Web Server:
+-----------
+	Web server is a software application which handles the http request send by the client.
+	Web server supports server side rendering.
+	Modules in Web Server:
+	----------------------
+		Client - the one who will make the request to the web server.
+		Web server - Which will be responding to the client request and will send the corresponding result back to client.
+		Business - The layer consists of application server which will be processing the incoming data.
+		Data - This is Database layer or some data source.
+		
+	Node capable of creating Client and Server:
+	
+Express:
+--------
+	It will act as middleware to respond back to the HTTP requests/
+	Defines routing
+	Command used to install express - npm install express --save
+	Make sure you will install body parser and cookie parser and multer.
+	Body-Parser is used to handle the json, text etc data
+	/ - Redirect us to home page
+	
+	Serving Static files:
+	---------------------
+		Which is used to server static files (Means photos and etc)
+		We can utilize those things using directory name to make use of those files.
+	Basic Routing:
+	--------------
+		Which helps us to use particular end point or URI and specific methods.
+	Methods available in Routing:
+	-----------------------------
+		Get, Post, delete.
+		Use this method is mostly used to use the static files.
+		
+REST:
+-----
+	REST Stands for REpresentational State Transfer.
+	REST is access through the HTTP methods.
+	Common Methods used in REST:
+	----------------------------
+	GET, POST, DELETE, PUT
+	
+	RESTful Web services:
+	---------------------
+		This web protocol standards are mainly used to exchange the data between two application.
+		Applications running in different platforms can exchange data using REST web services.
+	
+	
+	
+Child Process:
+--------------
+	Child Process is used to leverage parallel processing.
+	Streams:
+	--------
+		child.stdin, child.stdout, child.stderr
+	Create Child process:
+	---------------------
+		exec - runs command in a shell and buffers the output.
+		spawn - 
+		fork
+
+JX Core:
+--------
+	Which helps to packaging and encryption of source files and other assets into JSX packages.
+	
+	
+Classes:
+--------
+The common places where we can find node js.
+
+1) Micro-service Application 
+2) Serverless cloud application
+3) command line application
+4) Desktop application
+
+ELECTRON:
+---------
+	Which will be providing the runtime for developing desktop application.
+	Is a framework which helps us to build cross-platform desktop application using javascript.
+	Example applications:
+	SKYPE,
+	TEAMS,
+	VISUAL STUDIO CODE,
+	
+NODE JS:
+-------
+	Main two modules of node is 
+	1) JavaScript (v8)
+	2) Libuv (which supports asynchronous I/O and Event Loop)
+	
+	Christmas Tree Problem in Node js.
+	----------------------------------
+		Use promises and async/await
+
+
+Weather API:
+------------
+http://api.weatherstack.com/current?access_key=489b400e52ec63626028a41098aa75fb&query=india
+
+response:
+{"request":{"type":"LatLon","query":"Lat 27.20 and Lon 77.50","language":"en","unit":"m"},"location":{"name":"Khanua","country":"India","region":"Rajasthan","lat":"27.033","lon":"77.533","timezone_id":"Asia\/Kolkata","localtime":"2020-08-16 18:41","localtime_epoch":1597603260,"utc_offset":"5.50"},"current":{"observation_time":"01:11 PM","temperature":35,"weather_code":116,"weather_icons":["https:\/\/assets.weatherstack.com\/images\/wsymbols01_png_64\/wsymbol_0002_sunny_intervals.png"],"weather_descriptions":["Partly cloudy"],"wind_speed":8,"wind_degree":123,"wind_dir":"ESE","pressure":994,"precip":0,"humidity":58,"cloudcover":38,"feelslike":43,"uv_index":8,"visibility":10,"is_day":"yes"}}

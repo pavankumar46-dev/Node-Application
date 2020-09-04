@@ -1,0 +1,41 @@
+1) nodejs.com - 
+2) expressjs.com - webserver
+
+
+nodemon = to load dynamic changes from code
+
+HBS:
+----
+
+We can use this module to load the common content 
+
+hbs module = Dynamic page
+hbs partials [Syntax {{>header}}]
+
+node src/app.js -e js,hbs
+
+Default Parameters
+
+	Make sure u use Default parameter values when ur destructing the object. Otherwise application will throw error
+	
+Fetch: ( Wont work in node js env)
+
+then (promises, asyn await)
+
+
+HTML:
+
+To get form html file to app.js use document.queryselector(<form name>)
+
+eventlisteners - will be listening to the user input
+preventDefault - will prevent the default behaviour of the eventlisteners
+
+to get the <p> tag inside java script use below syntax
+
+html - <p id="message-1"></p>
+java script calling html - const MessageOne = document.querySelector("#message-1")
+
+
+Heruko - Deploying the application in server (Insatll Heruko cli tool) - npm install -g heroku
+Github - Backing up source code
+git-scm

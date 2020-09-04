@@ -1,0 +1,43 @@
+Setting Up NODEJS:
+-----------------
+1) Download the latest node from following link:
+Link:nodejs.org
+2) Command used to verify the node installation
+Command: node -v
+3) Download the editor called Visual Studio Code
+Link:code.visualstudio.com
+
+What is node.js ?
+	Before node js javascript is limited to run on the web browser, now node.js add more features to javascript.
+	Example:
+	--------
+			When it is limited inside web browser, just we can use javascript to add some click events kind of thing. But node.js enables more features like creating web server using java script.
+	
+	As conclusion we can say like node helps us to run javascript at server side
+	
+	CHROME:
+	------
+		1) Chrome executing the javascript using V8 engine and displaying those results back in browser.
+		2) Chrome will take care of the DOM stuff, which javascript dont have idea.
+		3) Common point between these two both chrome and node is written in c++, this enables the interaction between node and chrome
+		4) Common commands what we can use inside the chrome console is (window, document)
+	Node:
+	-----
+		1) Node is also not capable of running javascript so it is also using V8 engine to execute the javascript.
+		2) Node will take of the filesystem and webserver related stuff which javascript dont have an idea.
+		3) Common point between these two both chrome and node is written in c++, this enables the interaction between node and chrome
+		4) Common commands which we will be using inside node is (global, process)
+		
+Why is node.js ?
+	Non Blocking I/O: 
+
+Node JS Modules:
+----------------
+Global Modules: (console)
+
+File System Modules:
+--------------------
+NOTE:
+----
+LTS - Long Term Support (Version)
+Both node and chrome is mostly written in C++
