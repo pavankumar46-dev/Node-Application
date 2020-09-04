@@ -38,4 +38,11 @@ java script calling html - const MessageOne = document.querySelector("#message-1
 
 Heruko - Deploying the application in server (Insatll Heruko cli tool) - npm install -g heroku
 Github - Backing up source code
-git-scm
+git-bash
+
+git commands:
+
+git init (To initialize the repository )
+git status (TO check the status of files)
+git add <file name or folder name>
+git add . (to commit all files inside current working directory) [Staging Area]
