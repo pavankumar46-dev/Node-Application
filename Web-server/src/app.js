@@ -5,6 +5,7 @@ const forecast = require("./utils/forecast")
 const geocode = require("./utils/geocode")
 
 const app = express()
+const port = process.env.PORT || 3000
 
 const index_path = path.join(__dirname,"../public")
 const viewspath = path.join(__dirname,"../templates/views")
@@ -76,6 +77,6 @@ res.render("404",{
 })
 })
 
-app.listen(3001, () => {
+app.listen(port, () => {
     console.log("Server Started Successfully")
 })

@@ -46,3 +46,31 @@ git init (To initialize the repository )
 git status (TO check the status of files)
 git add <file name or folder name>
 git add . (to commit all files inside current working directory) [Staging Area]
+git commit -m(Message Flag) "Relevant Comment"
+
+The above commands are locally commiting our changes into repository, to commit the same in Github repository do follow the following steps
+
+
+Setting up SSH:
+--------------
+
+ssh-keygen - to generate ssh keygen
+ls -a -l ~/.ssh - to verify ssh key got generated or not
+eval ssh-agent -s
+
+Adding SSH key to Git hub:
+
+Run the following commands in Git bash:
+
+ls -al ~/.ssh
+ls
+vi id_rsa.pub
+copy all the content from the file, and paste it in GIT HUB UI -> Settings -> SSH and GPG keys -> New SSH KEY (button) -> paste the content inside box.
+
+
+Then run the below commands to add our local projectg into git remote branch.
+
+git remote add origin git@github.com:pavankumar46-dev/Node-Application.git
+git push -u origin master
+
+
